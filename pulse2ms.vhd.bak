@@ -1,0 +1,9 @@
+-------------------------------------------------------------
+-- fichier : pulse2ms.vhd                                  --
+-- auteur : Thomas COUSSOT                                 --
+-- desc : envoi une impulsion d'un cycle d'horloge toutes  --
+--        les 2ms (avec une horloge de base de 100kHz      --
+-------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;

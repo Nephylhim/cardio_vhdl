@@ -1,0 +1,19 @@
+-------------------------------------------------------------
+-- fichier : choix_aff.vhd                                 --
+-- auteur : Thomas COUSSOT                                 --
+-- desc : envoi le signal SALH, SALB, BPM ou moy_DC en     --
+--        fonction de SW et bp_reg                         --
+-------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity choix_aff is
+	port(
+		bp_reg : in std_logic;
+		SW : in std_logic_vector(1 downto 0);
+		SALB, SALH, BPM : in std_logic_vector(9 downto 0);
+		moy_DC : in std_logic_vector(11 downto 0)
+	);
+end choix_aff;
+
