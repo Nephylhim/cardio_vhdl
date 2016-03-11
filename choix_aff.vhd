@@ -26,7 +26,7 @@ architecture beh of choix_aff is
 					if(bp_reg = '1') then
 						aff <= "00" & BPM;
 					else
-						aff <= moy_DC
+						aff <= moy_DC;
 					end if;
 				else
 					if(SW(0) = '1') then

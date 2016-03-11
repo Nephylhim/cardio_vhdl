@@ -8,6 +8,7 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity trait_ac is
 	port(
@@ -22,59 +23,71 @@ architecture beh of trait_ac is
 	constant SH : std_logic_vector(11 downto 0) := "100001100100";
 	constant SB : std_logic_vector(11 downto 0) := "011110011100";
 	constant MAX : natural range 0 to 1000 := 1000;
-	signal s_cpt, s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg7 : natural range 0 to MAX;
+	signal s_cpt, s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg6, s_reg7 : natural range 0 to MAX;
 	signal s_sel : natural range 0 to 7;
 	signal s_SH_depasse : std_logic;
 	signal s_somme_n : natural range 0 to 8*MAX;
 	signal s_somme_l : std_logic_vector(12 downto 0);
+	signal s_debord : std_logic;
 	
 	begin
 		Memo : process(clk, rst)
 			begin
 				if(rst = '0') then
 					s_cpt <= 0;
-					s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg7 <= 425;
+					s_reg0 <= 425;
+					s_reg1 <= 425;
+					s_reg2 <= 425;
+					s_reg3 <= 425;
+					s_reg4 <= 425;
+					s_reg5 <= 425;
+					s_reg6 <= 425;
+					s_reg7 <= 425;
 					s_sel <= 0;
 					
-				elsif(rising_edge(clk) and modop = '1' and echAC_acq = '1') then
-					top_alum <= '0';
-					
-					-- Incrmentation du compteur --
-					if(s_cpt < 1000) then
-						debord_cpt <= '0';
-						s_cpt <= s_cpt+1;
-					else
-						debord_cpt <= '1';
-					end if;
-					
-					-- Maj du registre si nouvelle periode --
-					if(ech_AC > SH) then
-						s_SH_depasse <= '1';
-					elsif(ech_AC < SB and s_SH_depasse = '1') then
-						if(debord_cpt = '0') then
-							case s_sel is
-								when 1 => s_reg1 <= s_cpt;
-								when 2 => s_reg2 <= s_cpt;
-								when 3 => s_reg3 <= s_cpt;
-								when 4 => s_reg4 <= s_cpt;
-								when 5 => s_reg5 <= s_cpt;
-								when 6 => s_reg6 <= s_cpt;
-								when 7 => s_reg7 <= s_cpt;
-								when others => s_reg0 <= s_cpt;
-													s_sel <= 0;
-							end case;
-							
-							if(s_sel < 7) then
-								s_sel <= s_sel+1;
-							else
-								s_sel <= 0;
-							end if;
+				elsif(rising_edge(clk)) then
+					if(modop = '1' and echAC_acq = '1') then
+						top_alum <= '0';
+						
+						-- Incrmentation du compteur --
+						if(s_cpt < 1000) then
+							s_debord <= '0';
+							s_cpt <= s_cpt+1;
+						else
+							s_debord <= '1';
 						end if;
 						
-						s_cpt <= 0;
-						s_SH_depasse <= '0';
-						top_alum <= '1';
-					end if;	
+						-- Maj du registre si nouvelle periode --
+						if(ech_AC > SH) then
+							s_SH_depasse <= '1';
+						elsif(ech_AC < SB and s_SH_depasse = '1') then
+							if(s_debord = '0') then
+								case s_sel is
+									when 1 => s_reg1 <= s_cpt;
+									when 2 => s_reg2 <= s_cpt;
+									when 3 => s_reg3 <= s_cpt;
+									when 4 => s_reg4 <= s_cpt;
+									when 5 => s_reg5 <= s_cpt;
+									when 6 => s_reg6 <= s_cpt;
+									when 7 => s_reg7 <= s_cpt;
+									when others => s_reg0 <= s_cpt;
+														s_sel <= 0;
+								end case;
+								
+								if(s_sel < 7) then
+									s_sel <= s_sel+1;
+								else
+									s_sel <= 0;
+								end if;
+							end if;
+							
+							s_cpt <= 0;
+							s_SH_depasse <= '0';
+							top_alum <= '1';
+						end if;
+						
+						debord_cpt <= s_debord;
+					end if;
 				end if;
 		end process Memo;
 		
