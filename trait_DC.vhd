@@ -31,7 +31,7 @@ architecture beh of trait_DC is
 	begin
 
 	--Memoriqation Dc ds un des 8 registres
-	Memo : process(clk,rst)
+	Memo : process(clk, rst)
 	begin
 		if rst = '0' then
 			s_reg1 <= (others => '0');
@@ -86,11 +86,11 @@ architecture beh of trait_DC is
 	);
 	
 	--Moyenne de la somme
-	Moyenne : process(clk,rst)
+	Moyenne : process(clk, rst)
 	begin
 		if rst = '0' then
 			DC_moy <= (others => '0');
-		elsif (rising_edge(clk) and echDC_acq = '1') then
+		elsif rising_edge(clk) then
 			DC_moy <= s_somme(14 downto 3);
 		end if;
 	end process Moyenne;
