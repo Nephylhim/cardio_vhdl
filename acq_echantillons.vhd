@@ -316,7 +316,7 @@ architecture beh of acq_echantillons is
 			if s_enable = '1' then
 				s_echantillon <= s_echantillon(10 downto 0) & dout_adc;
 			end if;
-			echantillon <= s_echantillon;
 		end if;
+		echantillon <= s_echantillon;
 	end process REGISTRE;
 end beh;
