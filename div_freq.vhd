@@ -21,12 +21,11 @@ architecture beh of div_freq is
 	
 	P1 : process(clk, rst)
 	begin
-		if(rst = '0')then
+		if rst = '0' then
 			s_cpt <= 0;
 			s_clk <= '0';
-		elsif
-		 rising_edge(clk) then
-			if(s_cpt = CPT_MAX) then
+		elsif rising_edge(clk) then
+			if s_cpt = CPT_MAX then
 				s_cpt <= 0;
 				s_clk <= not s_clk;
 			else
