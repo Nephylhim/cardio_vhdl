@@ -19,16 +19,20 @@ entity cardio is
 end cardio;
 
 architecture struct of cardio is
-	signal s_clk_100K : std_logic;
-	signal s_ena2ms : std_logic;
-	signal s_ech_ACacq, s_ech_DCacq, s_debord, s_top_alum : std_logic;
-	signal s_ech, s_DC_moy : std_logic_vector(11 downto 0);
-	signal s_cptperiode_moy : std_logic_vector(9 downto 0);
+	constant tirets : std_logic_vector(6 downto 0) := "1000000";
+
+	signal s_clk_100K, s_ena2ms : std_logic;
+	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel : std_logic;
+	signal s_ech, s_DC_moy, s_aff : std_logic_vector(11 downto 0);
+	signal s_cptperiode_moy, s_bpm, s_SALB, s_SALH : std_logic_vector(9 downto 0);
+	signal s_affu, s_affd, s_affc : std_logic_vector(6 downto 0);
+	
+	signal s_dout_adc, s_din_adc, s_cs_adc, s_clk_adc : std_logic; -- Pour le composant ADC de test
 
 	component div_freq is
 		port(
 			clk, rst : in std_logic;
-			clk_100K : out std_logic
+			clk100K : out std_logic
 		);
 	end component;
 	
@@ -58,7 +62,7 @@ architecture struct of cardio is
 	component trait_ac is
 		port(
 			clk, rst, modop, echAC_acq : in std_logic;
-			ech_AC : in std_logic_vector(11 downto 0);
+			echAC : in std_logic_vector(11 downto 0);
 			debord_cpt, top_alum : out std_logic;
 			cptperiode_moy : out std_logic_vector(9 downto 0)
 		);
@@ -106,11 +110,21 @@ architecture struct of cardio is
 		);
 	end component;
 	
+	-- Pour le composant de test ADC
+	component ADC is
+		port (
+		DCLK     : in  std_logic;           -- horloge de synchro
+		rst      : in std_logic;            -- reset asynchrone
+		CS_ADC   : in  std_logic;           -- chip select 
+		DIN_ADC  : in  std_logic;           -- entree mot de controle adc
+		DOUT_ADC : out std_logic);          -- data synchrone serie
+	end component;
+	
 	begin
 		clk100 : div_freq port map(
 			clk => clk,
 			rst => rst,
-			clk_100K => s_clk_100K
+			clk100K => s_clk_100K
 		);
 		
 		pulse : pulse2ms port map(
@@ -122,21 +136,25 @@ architecture struct of cardio is
 		acq_ech : acq_echantillons port map(
 			clk => s_clk_100K,
 			rst => rst,
-			dout_adc => dout_adc,
+--			dout_adc => dout_adc,
+			dout_adc => s_dout_adc,
 			ena2ms => s_ena2ms,
 			modop => sw(1),
-			clk_adc => clk_adc,
-			cs_adc => cs_adc,
-			din_adc => din_adc,
-			ech_ACacq => s_ech_ACacq,
-			ech_DCacq => s_ech_DCacq,
+--			clk_adc => clk_adc,
+--			cs_adc => cs_adc,
+--			din_adc => din_adc,
+			clk_adc => s_clk_adc,
+			cs_adc => s_cs_adc,
+			din_adc => s_din_adc,
+			echAC_acq => s_echAC_acq,
+			echDC_acq => s_echDC_acq,
 			echantillon => s_ech
 		);
 		
 		tdc : trait_DC port map(
 			clk => s_clk_100K,
 			rst => rst,
-			ech_DCacq => s_ech_DCacq,
+			echDC_acq => s_echDC_acq,
 			echDC => s_ech,
 			DC_moy => s_DC_moy
 		);
@@ -144,15 +162,84 @@ architecture struct of cardio is
 		tac : trait_AC port map(
 			clk => s_clk_100K,
 			rst => rst,
-			ech_ACacq => s_ech_ACacq,
+			echAC_acq => s_echAC_acq,
 			echAC => s_ech,
+			modop => SW(1),
 			debord_cpt => s_debord,
 			top_alum => s_top_alum,
 			cptperiode_moy => s_cptperiode_moy
 		);
 		
 		rom : rom1BPM port map(
-			
+			clock => clk,
+			address => s_cptperiode_moy,
+			q => s_bpm
+		);
+		
+		ch_aff : choix_aff port map(
+			bp_reg => bp_reg,
+			sw => sw,
+			SALB => s_SALB,
+			SALH => s_SALH,
+			BPM => s_bpm,
+			moy_dc => s_DC_moy,
+			aff => s_aff
+		);
+		
+--		gal : gestion_alarme port map(
+--			clk => s_clk_100K,
+--			rst => rst,
+--			bp_reg => bp_reg,
+--			sw => sw,
+--			BPM => s_bpm,
+--			led_al => led_al,
+--			SALB => s_SALB,
+--			SALH => s_SALH
+--		);
+--		
+--		cmd_pou : cmd_ledpouls port map(
+--			clk => s_clk_100K,
+--			rst => rst,
+--			top_alum => s_top_alum,
+--			led_pou => led_pou
+--		);
+
+		led_al <= '0';
+		s_SALB <= "0001000000";
+		s_SALH <= "1001000000";
+		led_pou <= '0';
+		
+		trans_u : trans_7seg port map(
+			code_e => s_aff(3 downto 0),
+			code_s => s_affu
+		);
+		
+		trans_d : trans_7seg port map(
+			code_e => s_aff(7 downto 4),
+			code_s => s_affd
+		);
+		
+		trans_c : trans_7seg port map(
+			code_e => s_aff(11 downto 8),
+			code_s => s_affc
+		);
+		
+		s_sel <= sw(1) and bp_reg and s_debord;
+		
+		affu 	<= tirets when s_sel = '1'
+				else s_affu;
+		affd 	<= tirets when s_sel = '1'
+				else s_affd;
+		affc 	<= tirets when s_sel = '1'
+				else s_affc;
+		
+		-- Pour le composant de test ADC
+		adc1 : ADC port map(
+			dclk => s_clk_adc,
+			rst => rst,
+			cs_adc => s_cs_adc,
+			din_adc => s_din_adc,
+			dout_adc =>s_dout_adc
 		);
 
 end struct;

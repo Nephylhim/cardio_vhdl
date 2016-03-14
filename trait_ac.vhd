@@ -13,7 +13,7 @@ use ieee.numeric_std.all;
 entity trait_ac is
 	port(
 		clk, rst, modop, echAC_acq : in std_logic;
-		ech_AC : in std_logic_vector(11 downto 0);
+		echAC : in std_logic_vector(11 downto 0);
 		debord_cpt, top_alum : out std_logic;
 		cptperiode_moy : out std_logic_vector(9 downto 0)
 	);
@@ -62,9 +62,9 @@ architecture beh of trait_ac is
 						end if;
 						
 						-- Maj du registre si nouvelle periode --
-						if(ech_AC > SH) then
+						if(echAC > SH) then
 							s_SH_depasse <= '1';
-						elsif(ech_AC < SB and s_SH_depasse = '1') then
+						elsif(echAC < SB and s_SH_depasse = '1') then
 							if(s_debord = '0') then
 								case s_sel is
 									when 1 => s_reg1 <= s_cpt;
