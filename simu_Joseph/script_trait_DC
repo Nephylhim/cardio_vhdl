@@ -103,3 +103,11 @@ do simu_trait_DC.do
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.trait_dc(beh)
+quit -sim
+do simu_trait_DC.do
+# vsim -t us work.trait_dc 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.trait_dc(beh)
+quit -sim

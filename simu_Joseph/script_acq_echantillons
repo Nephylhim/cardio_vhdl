@@ -1,0 +1,353 @@
+vsim -t us work.acq_echantillons
+# vsim -t us work.acq_echantillons 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_echantillons(beh)
+add wave sim:/acq_echantillons/*
+force -freeze sim:/acq_echantillons/clk 1 0, 0 {10 us} -r 20
+force -deposit sim:/acq_echantillons/rst 0 0
+force -deposit sim:/acq_echantillons/modop 1 0
+force -deposit sim:/acq_echantillons/ena2ms 0 0
+force -deposit sim:/acq_echantillons/dout_adc 0 0
+run
+run
+force -deposit sim:/acq_echantillons/rst 1 0
+run
+force -deposit sim:/acq_echantillons/ena2ms 1 0
+run
+run
+run
+force -deposit sim:/acq_echantillons/ena2ms 0 0
+force -deposit sim:/acq_echantillons/modop 0 0
+run
+run
+run
+force -deposit sim:/acq_echantillons/modop 1 0
+run
+force -deposit sim:/acq_echantillons/ena2ms 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+force -deposit sim:/acq_echantillons/ena2ms 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -deposit sim:/acq_echantillons/dout_adc 1 0
+run
+run
+quit -sim
+do simu_acq_echantillons_mot_controle_voie_ac_complet.do
+# vsim -t us work.acq_echantillons 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_echantillons(beh)
+quit -sim
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+vsim -t us work.acq_ech_tb
+# vsim -t us work.acq_ech_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_ech_tb(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+run
+add wave sim:/acq_ech_tb/*
+run
+run
+quit -sim
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+vsim -t us work.acq_ech_tb
+# vsim -t us work.acq_ech_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_ech_tb(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+add wave \
+{sim:/acq_ech_tb/s_din_adc } 
+add wave sim:/acq_ech_tb/*
+run
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+quit -sim
+vsim -t us work.acq_ech_tb
+# vsim -t us work.acq_ech_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_ech_tb(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+run
+add wave sim:/acq_ech_tb/*
+run
+run
+quit -sim
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+vsim -t us work.acq_ech_tb
+# vsim -t us work.acq_ech_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_ech_tb(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+add wave sim:/acq_ech_tb/*
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all
+restart
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+add list sim:/acq_ech_tb/acq_ech1/*
+restart
+run 2000
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+run
+run
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+run 2000
+quit -sim
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+vsim -t us work.acq_ech_tb
+# vsim -t us work.acq_ech_tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.acq_ech_tb(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+add wave sim:/acq_ech_tb/*
+run 2000
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+restart
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# WARNING: No extended dataflow license exists
+# Compile of acq_echantillons.vhd failed with 1 errors.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 1 failed with 1 error. 
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+restart
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000
+# ** Fatal: (vsim-3421) Value 13 for s_cpt is out of range 0 to 12.
+#    Time: 1200 us  Iteration: 0  Process: /acq_ech_tb/acq_ech1/seq File: C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
+# Fatal error in Process seq at C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd line 114
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd 114 Process seq
+# 
+# Compile of acq_echantillons.vhd was successful.
+# Compile of div_freq.vhd was successful.
+# Compile of trait_DC.vhd was successful.
+# Compile of ADC.vhd was successful.
+# Compile of acq_echantillons_test_bench.vhd was successful with warnings.
+# 5 compiles, 0 failed with no errors. 
+restart
+# Loading work.acq_ech_tb(test)
+# Loading work.adc(beh)
+# Loading work.acq_echantillons(beh)
+force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
+run 2000

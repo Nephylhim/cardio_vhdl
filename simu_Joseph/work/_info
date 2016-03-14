@@ -3,38 +3,96 @@ K3
 13
 cModel Technology
 dD:\Documents\Electronique\TP_VHDL\TP3\carrefour
-Eacq_echantillons
-Z0 w1457715389
+Eacq_ech_tb
+Z0 w1457952943
 Z1 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
 Z2 dC:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\simu_Joseph
-Z3 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
-Z4 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
+Z3 8C:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd
+Z4 FC:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd
 l0
 L8
-VPIJnAFfk__;M;>o25oWOz2
+Vj_?=zT:<^;_kI^QP3>1M92
+!s100 oW_9NFAaE:WGGJf]J8F3Z3
 Z5 OV;C;6.6d;45
 32
 Z6 o-work work -2002 -explicit -O0
 Z7 tExplicit 1
+Atest
+R1
+Z8 DEx4 work 10 acq_ech_tb 0 22 j_?=zT:<^;_kI^QP3>1M92
+l41
+L12
+Z9 Vdife;g<9oUA2IO5NjKoUb3
+Z10 !s100 I0<JE@D`hUAZd;CQ=QnNh0
+R5
+32
+Z11 Mx1 4 ieee 14 std_logic_1164
+R6
+R7
+Eacq_echantillons
+Z12 w1457965674
+R1
+R2
+Z13 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
+Z14 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
+l0
+L8
+VPIJnAFfk__;M;>o25oWOz2
+R5
+32
+R6
+R7
 !s100 K^XkNak176VDh9P2]HO1S3
 Abeh
 R1
 DEx4 work 16 acq_echantillons 0 22 PIJnAFfk__;M;>o25oWOz2
 l29
 L16
-VNQWV[^:A?EAEmk_A9iTF^1
+VPRhkf3dKEfVoW:P`A7l6=2
 R5
 32
-Z8 Mx1 4 ieee 14 std_logic_1164
+R11
 R6
 R7
-!s100 B?kQ0KzkeZDgYh0iIh<773
-Ediv_freq
-Z9 w1457701477
+!s100 2CJJ6d2]RQjJ9b[kXI:HT2
+Eadc
+Z15 w1457715197
+Z16 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z17 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
 R1
 R2
-Z10 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
-Z11 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z18 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd
+Z19 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd
+l0
+L24
+VU9=69L[jO=]Ez0o6hVmIV0
+R5
+32
+R6
+R7
+!s100 Y:^I`CHOKj[mO=;D4KI<k2
+Abeh
+R16
+R17
+R1
+DEx4 work 3 adc 0 22 U9=69L[jO=]Ez0o6hVmIV0
+l56
+L36
+V@MYZJQn4[BZCgV5JGh^EV1
+!s100 XIOXoc_gDn_`PHO1ShTo]3
+R5
+32
+Z20 Mx3 4 ieee 14 std_logic_1164
+Mx2 4 ieee 18 std_logic_unsigned
+Z21 Mx1 4 ieee 15 std_logic_arith
+R6
+R7
+Ediv_freq
+Z22 w1457701477
+R1
+R2
+Z23 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z24 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
 l0
 L8
 VF[LW?2liFeoEoWPZ5P[QW2
@@ -51,36 +109,36 @@ L15
 VoB::k>N;bJBAIHaeiBNhf0
 R5
 32
-R8
+R11
 R6
 R7
 !s100 g=W>4X2dB[2hP0TbATeC=0
 Etrait_dc
-Z12 w1457945436
-Z13 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z25 w1457945436
+Z26 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
 R1
 R2
-Z14 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
-Z15 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z27 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z28 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 l0
 L9
 V[V3P`z4YC:laobUNW;A;J2
-!s100 O2;oA<G_bfPnljNGB9JU73
 R5
 32
 R6
 R7
+!s100 O2;oA<G_bfPnljNGB9JU73
 Abeh
-R13
+R26
 R1
-Z16 DEx4 work 8 trait_dc 0 22 [V3P`z4YC:laobUNW;A;J2
+DEx4 work 8 trait_dc 0 22 [V3P`z4YC:laobUNW;A;J2
 l30
 L17
 Vl22A9XiSRJ]@1je@:JA^]1
-!s100 Mz4>1kJU1e^nCQOhTk[P33
 R5
 32
-Z17 Mx2 4 ieee 14 std_logic_1164
-Z18 Mx1 4 ieee 11 numeric_std
+Z29 Mx2 4 ieee 14 std_logic_1164
+Mx1 4 ieee 11 numeric_std
 R6
 R7
+!s100 Mz4>1kJU1e^nCQOhTk[P33

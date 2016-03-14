@@ -78,9 +78,9 @@ architecture beh of acq_echantillons is
 					when WC_d =>
 						EP <= WC_u;
 					when WC_u =>
-						EP <= A_u;
+						EP <= A_d;
 					when A_u =>
-						if s_cpt = 11 then
+						if s_cpt = 12 then
 							s_cpt <= 0;
 							if s_sel = '0' then
 								EP <= Rac;
@@ -108,12 +108,14 @@ architecture beh of acq_echantillons is
 								EP <= W;
 							end if;
 						else
-							EP <= S_d;
+							EP <= WF_d;
 						end if;
 					when WF_d =>
 						s_cpt <= s_cpt + 1;
+						EP <= WF_u;
 					when others =>
 						s_cpt <= 0;
+						s_sel <= '0';
 						EP <= W;
 				end case;
 			end if;
@@ -258,16 +260,16 @@ architecture beh of acq_echantillons is
 				echDC_acq <= '0';
 			when A_u =>
 				cs_adc <= '0';
-				clk_adc <= '0';
+				clk_adc <= '1';
 				din_adc <= '0';
-				s_enable <= '1';
+				s_enable <= '0';
 				echAC_acq <= '0';
 				echDC_acq <= '0';
 			when A_d =>
 				cs_adc <= '0';
-				clk_adc <= '1';
+				clk_adc <= '0';
 				din_adc <= '0';
-				s_enable <= '0';
+				s_enable <= '1';
 				echAC_acq <= '0';
 				echDC_acq <= '0';
 			when Rac =>
@@ -317,6 +319,8 @@ architecture beh of acq_echantillons is
 				s_echantillon <= s_echantillon(10 downto 0) & dout_adc;
 			end if;
 		end if;
-		echantillon <= s_echantillon;
 	end process REGISTRE;
+	
+	echantillon <= s_echantillon;
+	
 end beh;
