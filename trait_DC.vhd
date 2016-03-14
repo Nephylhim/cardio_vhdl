@@ -26,7 +26,6 @@ architecture beh of trait_DC is
 	
 	signal s_cpt : natural range 1 to 8;
 	signal s_somme : std_logic_vector(14 downto 0);
-	signal s_moyenne : std_logic_vector(11 downto 0);
 	
 	begin
 
@@ -43,33 +42,37 @@ architecture beh of trait_DC is
 			s_reg7 <= (others => '0');
 			s_reg8 <= (others => '0');
 			s_cpt <= 1;
-		elsif (rising_edge(clk) and echDC_acq = '1') then
-			case s_cpt is
-			when 1 =>
-				s_reg1 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 2 =>
-				s_reg2 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 3 =>
-				s_reg3 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 4 =>
-				s_reg4 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 5 =>
-				s_reg5 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 6 =>
-				s_reg6 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 7 =>
-				s_reg7 <= echDC;
-				s_cpt <= s_cpt + 1;
-			when 8 =>
-				s_reg8 <= echDC;
-				s_cpt <= 1;
-			end case;			
+		--elsif (rising_edge(clk) and echDC_acq = '1') then
+		elsif rising_edge(clk) then
+			if echDC_acq = '1' then
+				--si on voulait optimiser davantage, on peux decaller de registre en registre plutot que d'utiliser un index. 
+				case s_cpt is
+				when 1 =>
+					s_reg1 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 2 =>
+					s_reg2 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 3 =>
+					s_reg3 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 4 =>
+					s_reg4 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 5 =>
+					s_reg5 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 6 =>
+					s_reg6 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 7 =>
+					s_reg7 <= echDC;
+					s_cpt <= s_cpt + 1;
+				when 8 =>
+					s_reg8 <= echDC;
+					s_cpt <= 1;
+				end case;	
+			end if;
 		end if;
 	end process Memo;
 	
