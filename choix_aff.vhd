@@ -20,7 +20,7 @@ end choix_aff;
 
 architecture beh of choix_aff is
 	begin
-		P1 : process(SW, bp_reg)
+		P1 : process(SW, bp_reg, BPM, SALB, SALH, moy_DC)
 			begin
 				if(SW(1) = '1') then
 					if(bp_reg = '1') then

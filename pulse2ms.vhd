@@ -30,9 +30,7 @@ architecture beh of pulse2ms is
 						s_cpt <= 0;
 						ena2ms <= '1';
 					else
-						if(s_cpt = 1) then
-							ena2ms <= '0';
-						end if;
+						ena2ms <= '0';
 						s_cpt <= s_cpt+1;
 					end if;
 				end if;

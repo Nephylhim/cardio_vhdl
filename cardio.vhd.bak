@@ -1,0 +1,8 @@
+-------------------------------------------------------------
+-- fichier : cardio.vhd                                    --
+-- auteur : Thomas COUSSOT                                 --
+-- desc : recoit un signal cardiaque et le traite afin     --
+--        d'afficher BPM, intensit lumineuses, alarme,     --
+--        nouvelle periode et seuils d'alarmes             --
+-------------------------------------------------------------
+
