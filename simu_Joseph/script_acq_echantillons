@@ -351,3 +351,21 @@ restart
 # Loading work.acq_echantillons(beh)
 force -freeze sim:/acq_ech_tb/clk_i 1 0, 0 {10 us} -r 20
 run 2000
+run 2000
+force -deposit sim:/acq_ech_tb/ena2ms_i 1 0
+run
+force -deposit sim:/acq_ech_tb/ena2ms_i 0 0
+run 2000
+quit -sim
+do simu_div_freq.do
+# vsim -t ns work.div_freq 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading work.div_freq(beh)
+quit -sim
+do simu_trait_DC.do
+# vsim -t us work.trait_dc 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.trait_dc(beh)
