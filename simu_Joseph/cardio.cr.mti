@@ -1,4 +1,12 @@
-C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd {2 {vcom -work work -2002 -explicit {C:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd}
+C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Compiling entity trait_dc
+-- Compiling architecture beh of trait_dc
+
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd {2 {vcom -work work -2002 -explicit {C:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd}
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
@@ -9,13 +17,12 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 ** Warning: [4] C:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 ** Warning: [4] C:\Users\Joseph\Documents\GitHub\cardio_vhdl\vhdl\acq_echantillons_test_bench.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
--- Loading package numeric_std
--- Compiling entity trait_dc
--- Compiling architecture beh of trait_dc
+-- Compiling entity div_freq
+-- Compiling architecture beh of div_freq
 
 } {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -23,21 +30,5 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package std_logic_1164
 -- Compiling entity acq_echantillons
 -- Compiling architecture beh of acq_echantillons
-
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package std_logic_unsigned
--- Compiling entity adc
--- Compiling architecture beh of adc
-
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Compiling entity div_freq
--- Compiling architecture beh of div_freq
 
 } {} {}}
