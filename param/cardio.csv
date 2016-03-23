@@ -1,0 +1,54 @@
+# Copyright (C) 1991-2011 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+# Quartus II 64-Bit Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Web Edition
+# File: C:/Users/skipper/OneDrive/Documents/ISEN/CIR3/projet_cir3-csi3/vhdl/cardio_vhdl/param/cardio.csv
+# Generated on: Wed Mar 23 11:14:34 2016
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
+
+To,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserved
+rst,Input,PIN_100,2,B2_N2,,
+clk,Input,PIN_10,1,B1_N1,,
+SW[1],Input,PIN_97,2,B2_N2,,
+SW[0],Input,PIN_98,2,B2_N2,,
+LED_POU,Output,IOBANK_4,4,,,
+LED_BF,Output,IOBANK_3,3,,,
+LED_AL,Output,PIN_90,2,B2_N2,,
+DOUT_ADC,Input,PIN_85,2,B2_N0,,
+DIN_ADC,Output,PIN_84,2,B2_N0,,
+CS_ADC,Output,PIN_88,2,B2_N1,,
+CLK_ADC,Output,PIN_79,2,B2_N0,,
+BP_REG,Input,PIN_89,2,B2_N1,,
+AFFU[6],Output,PIN_25,1,B1_N2,,
+AFFU[5],Output,PIN_24,1,B1_N2,,
+AFFU[4],Output,PIN_23,1,B1_N2,,
+AFFU[3],Output,PIN_22,1,B1_N2,,
+AFFU[2],Output,PIN_21,1,B1_N2,,
+AFFU[1],Output,PIN_20,1,B1_N2,,
+AFFU[0],Output,PIN_5,1,B1_N1,,
+AFFD[6],Output,PIN_36,4,B4_N2,,
+AFFD[5],Output,PIN_35,4,B4_N2,,
+AFFD[4],Output,PIN_34,4,B4_N2,,
+AFFD[3],Output,PIN_29,4,B4_N2,,
+AFFD[2],Output,PIN_28,4,B4_N2,,
+AFFD[1],Output,PIN_27,4,B4_N2,,
+AFFD[0],Output,PIN_26,4,B4_N2,,
+AFFC[6],Output,PIN_48,4,B4_N0,,
+AFFC[5],Output,PIN_47,4,B4_N0,,
+AFFC[4],Output,PIN_42,4,B4_N0,,
+AFFC[3],Output,PIN_41,4,B4_N0,,
+AFFC[2],Output,PIN_40,4,B4_N1,,
+AFFC[1],Output,PIN_39,4,B4_N1,,
+AFFC[0],Output,PIN_38,4,B4_N1,,

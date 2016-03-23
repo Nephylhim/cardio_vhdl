@@ -122,7 +122,7 @@ architecture beh of acq_echantillons is
 		end if;
 	end process SEQ;
 	
-	COMB : process(EP)
+	COMB : process(EP, s_sel)
 	begin
 		case EP is
 			when W =>

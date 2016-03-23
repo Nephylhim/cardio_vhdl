@@ -26,6 +26,8 @@ architecture struct of cardio is
 	signal s_ech, s_DC_moy, s_aff : std_logic_vector(11 downto 0);
 	signal s_cptperiode_moy, s_bpm, s_SALB, s_SALH : std_logic_vector(9 downto 0);
 	signal s_affu, s_affd, s_affc : std_logic_vector(6 downto 0);
+	
+	signal s_dout_adc, s_din_adc, s_cs_adc, s_clk_adc : std_logic; -- Pour le composant ADC de test
 
 	component div_freq is
 		port(
@@ -108,6 +110,16 @@ architecture struct of cardio is
 		);
 	end component;
 	
+	-- Pour le composant de test ADC
+	component ADC is
+		port (
+		DCLK     : in  std_logic;           -- horloge de synchro
+		rst      : in std_logic;            -- reset asynchrone
+		CS_ADC   : in  std_logic;           -- chip select 
+		DIN_ADC  : in  std_logic;           -- entree mot de controle adc
+		DOUT_ADC : out std_logic);          -- data synchrone serie
+	end component;
+	
 	begin
 		clk100 : div_freq port map(
 			clk => clk,
@@ -124,12 +136,16 @@ architecture struct of cardio is
 		acq_ech : acq_echantillons port map(
 			clk => s_clk_100K,
 			rst => rst,
-			dout_adc => dout_adc,
+--			dout_adc => dout_adc,
+			dout_adc => s_dout_adc,
 			ena2ms => s_ena2ms,
 			modop => sw(1),
-			clk_adc => clk_adc,
-			cs_adc => cs_adc,
-			din_adc => din_adc,
+--			clk_adc => clk_adc,
+--			cs_adc => cs_adc,
+--			din_adc => din_adc,
+			clk_adc => s_clk_adc,
+			cs_adc => s_cs_adc,
+			din_adc => s_din_adc,
 			echAC_acq => s_echAC_acq,
 			echDC_acq => s_echDC_acq,
 			echantillon => s_ech
@@ -218,5 +234,14 @@ architecture struct of cardio is
 				else s_affc;
 				
 		led_bf <= '1';
+		
+		-- Pour le composant de test ADC
+		adc1 : ADC port map(
+			dclk => s_clk_adc,
+			rst => rst,
+			cs_adc => s_cs_adc,
+			din_adc => s_din_adc,
+			dout_adc =>s_dout_adc
+		);
 
 end struct;
