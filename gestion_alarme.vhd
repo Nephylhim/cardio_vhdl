@@ -24,12 +24,12 @@ architecture beh of gestion_alarme is
 		REG_SB, SB_INC, SB_W
 	);
 	
-	constant PAS_AL_H : integer := 10;
-	constant PAS_AL_B : integer := 2;
-	
 	signal EP : etat;
-	signal s_salH : natural range 100 to 240;
-	signal s_salB : natural range 40 to 60;
+	
+	signal s_shc : natural range 1 to 2;
+	signal s_shd, s_sbu : natural range 0 to 9;
+	signal s_sbd : natural range 4 to 6;
+	signal s_sh, s_sb : std_logic_vector(9 downto 0);
 	
 	begin
 	
@@ -37,20 +37,20 @@ architecture beh of gestion_alarme is
 	begin
 		if(rst = '0') then
 			EP <= OP_OK;
-			s_salH <= 240;
-			s_salB <= 40;
+			s_shc <= 2;
+			s_shd <= 4;
+			s_sbd <= 4;
+			s_sbu <= 0;
 		elsif rising_edge(clk) then
 			if SW(1) = '1' then
 				EP <= OP_OK;
 			else
 				case EP is
 					when OP_OK =>
-						if SW(1) = '0' then
-							if SW(0) = '0' then
-								EP <= REG_SB;
-							else
-								EP <= REG_SH;
-							end if;
+						if SW(0) = '0' then
+							EP <= REG_SB;
+						else
+							EP <= REG_SH;
 						end if;
 					when REG_SH =>
 						if SW(0) = '0' then
@@ -61,10 +61,20 @@ architecture beh of gestion_alarme is
 							end if;
 						end if;
 					when SH_DEC =>
-						if s_salH  - PAS_AL_H < 100 then
-							s_salH <= 240;
+						if(s_shc = 1) then
+							if(s_shd = 0) then
+								s_shc <= 2;
+								s_shd <= 4;
+							else
+								s_shd <= s_shd - 1;
+							end if;
 						else
-							s_salH <= s_salH - PAS_AL_H;
+							if(s_shd = 0) then
+								s_shc <= 1;
+								s_shd <= 9;
+							else
+								s_shd <= s_shd - 1;
+							end if;
 						end if;
 						EP <= SH_W;
 					when SH_W =>
@@ -80,10 +90,22 @@ architecture beh of gestion_alarme is
 							end if;
 						end if;
 					when SB_INC =>
-						if s_salB + PAS_AL_B > 60 then
-							s_salB <= 40;
+						if(s_sbd = 6) then
+							s_sbd <= 4;
+						elsif(s_sbd = 5) then
+							if(s_sbu = 8) then
+								s_sbd <= 6;
+								s_sbu <= 0;
+							else
+								s_sbu <= s_sbu + 2;
+							end if;
 						else
-							s_salB <= s_salB + PAS_AL_B;
+							if(s_sbu = 8) then
+								s_sbd <= 5;
+								s_sbu <= 0;
+							else
+								s_sbu <= s_sbu + 2;
+							end if;
 						end if;
 						EP <= SB_W;
 					when SB_W =>
@@ -99,9 +121,11 @@ architecture beh of gestion_alarme is
 	
 	COMB : process(EP, s_salH, s_salB, BPM)
 		begin
-		SALH <= std_logic_vector(to_unsigned(s_salH, 10));
-		SALB <= std_logic_vector(to_unsigned(s_salB, 10));
-		if (to_integer(unsigned(BPM)) > s_salH or to_integer(unsigned(BPM)) < s_salB) then
+		s_sh <= std_logic_vector(to_unsigned(s_shc, 2)) & std_logic_vector(tu_unsigned(s_shd, 4)) & "0000";
+		s_sb <=  "00" & std_logic_vector(to_unsigned(s_sbd, 4)) & std_logic_vector(tu_unsigned(s_sbu, 4));
+		SALH <= s_sh;
+		SALB <= s_sb;
+		if(BPM > s_sh or BPM < s_sb) then
 			led_al <= '1';
 		else
 			led_al <= '0';
