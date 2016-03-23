@@ -119,10 +119,10 @@ architecture beh of gestion_alarme is
 		end if;
 	end process SEQ;
 	
-	COMB : process(EP, s_salH, s_salB, BPM)
+	COMB : process(EP, s_sbd, s_sbu, s_shc, s_shd, BPM)
 		begin
-		s_sh <= std_logic_vector(to_unsigned(s_shc, 2)) & std_logic_vector(tu_unsigned(s_shd, 4)) & "0000";
-		s_sb <=  "00" & std_logic_vector(to_unsigned(s_sbd, 4)) & std_logic_vector(tu_unsigned(s_sbu, 4));
+		s_sh <= std_logic_vector(to_unsigned(s_shc, 2)) & std_logic_vector(to_unsigned(s_shd, 4)) & "0000";
+		s_sb <=  "00" & std_logic_vector(to_unsigned(s_sbd, 4)) & std_logic_vector(to_unsigned(s_sbu, 4));
 		SALH <= s_sh;
 		SALB <= s_sb;
 		if(BPM > s_sh or BPM < s_sb) then
