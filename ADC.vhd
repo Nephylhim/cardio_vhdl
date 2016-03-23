@@ -46,8 +46,8 @@ signal mot_AC : integer range 0 to 4095;
 signal mot_DC : integer range 0 to 4095;
 signal temp_reg : std_logic_vector(14 downto 0);
 
-constant amplitude_max_ac :integer := 3298;
-constant amplitude_min_ac :integer := 798;
+constant amplitude_max_ac :integer := 2360;
+constant amplitude_min_ac :integer := 1730;
 constant amplitude_max_dc :integer := 4000;
 constant amplitude_min_dc :integer := 100;
 constant pas_ac : integer := 10;
