@@ -30,7 +30,7 @@ R6
 R7
 !s100 I0<JE@D`hUAZd;CQ=QnNh0
 Eacq_echantillons
-Z9 w1457965674
+Z9 w1458731055
 R1
 R2
 Z10 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
@@ -48,13 +48,13 @@ R1
 DEx4 work 16 acq_echantillons 0 22 PIJnAFfk__;M;>o25oWOz2
 l29
 L16
-VPRhkf3dKEfVoW:P`A7l6=2
+Vo>]QI6[ji923?5hzhodNz2
 R5
 32
 R8
 R6
 R7
-!s100 2CJJ6d2]RQjJ9b[kXI:HT2
+!s100 fK:]SFn>_EL7d;OMf@2=A1
 Eadc
 Z12 w1458722376
 Z13 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
@@ -96,23 +96,23 @@ Z21 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
 l0
 L9
 V;0_f1e<G]SO8Ti@mm?8WF0
-!s100 JUMLVe2a?Nz;MXZOz:Td`1
 R5
 32
 R6
 R7
+!s100 JUMLVe2a?Nz;MXZOz:Td`1
 Abeh
 R1
 DEx4 work 12 cmd_ledpouls 0 22 ;0_f1e<G]SO8Ti@mm?8WF0
 l22
 L17
 VYnOk3aEgcGF7F:Fm`];@R1
-!s100 Q9R2l0o^G>=FXEC<bX3ld2
 R5
 32
 R8
 R6
 R7
+!s100 Q9R2l0o^G>=FXEC<bX3ld2
 Ediv_freq
 Z22 w1457701477
 R1
@@ -139,13 +139,42 @@ R8
 R6
 R7
 !s100 g=W>4X2dB[2hP0TbATeC=0
-Etrait_dc
-Z25 w1457945436
+Egestion_alarme
+Z25 w1458748982
 Z26 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
 R1
 R2
-Z27 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
-Z28 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z27 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+Z28 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+l0
+L9
+VoJJ:=1WHH^e21IcDFXf0E0
+!s100 j^A_?aN>@YLJIne<[oXUN2
+R5
+32
+R6
+R7
+Abeh
+R26
+R1
+Z29 DEx4 work 14 gestion_alarme 0 22 oJJ:=1WHH^e21IcDFXf0E0
+l34
+L20
+VKmahIcBa7?gd=ZUdaod7Y1
+!s100 8AKhbgHSG26Vbee]<HFYF2
+R5
+32
+Z30 Mx2 4 ieee 14 std_logic_1164
+Z31 Mx1 4 ieee 11 numeric_std
+R6
+R7
+Etrait_dc
+Z32 w1457945436
+R26
+R1
+R2
+Z33 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z34 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 l0
 L9
 V[V3P`z4YC:laobUNW;A;J2
@@ -163,8 +192,8 @@ L17
 Vl22A9XiSRJ]@1je@:JA^]1
 R5
 32
-Z29 Mx2 4 ieee 14 std_logic_1164
-Mx1 4 ieee 11 numeric_std
+R30
+R31
 R6
 R7
 !s100 Mz4>1kJU1e^nCQOhTk[P33

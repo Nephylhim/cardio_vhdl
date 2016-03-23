@@ -140,3 +140,7 @@ do simu_cmd_ledpouls.do
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
 # Loading work.cmd_ledpouls(beh)
+quit -sim
+# Compile of acq_echantillons.vhd was successful.
+# Compile of gestion_alarme.vhd was successful with warnings.
+# 2 compiles, 0 failed with no errors. 

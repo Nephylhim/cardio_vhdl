@@ -1,6 +1,6 @@
 --Bloc : gestion_alarme
 --Auteur : Joseph Caillet
---Description : verifie si bpm et en dehors des seuil permis, et permet rglage de ces seuils.
+--Description : verifie si bpm et en dehors des seuil permis, et permet le reglage de ces seuils.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -24,12 +24,12 @@ architecture beh of gestion_alarme is
 		REG_SB, SB_INC, SB_W
 	);
 	
-	constant PAS_AL_H : integer := 2;
-	constant PAS_AL_B : integer := 10;
+	constant PAS_AL_H : integer := 10;
+	constant PAS_AL_B : integer := 2;
 	
 	signal EP : etat;
-	signal s_salH : natural range 40 to 60;
-	signal s_salB : natural range 100 to 240;
+	signal s_salH : natural range 100 to 240;
+	signal s_salB : natural range 40 to 60;
 	
 	begin
 	
@@ -45,10 +45,12 @@ architecture beh of gestion_alarme is
 			else
 				case EP is
 					when OP_OK =>
-						if SW(0) = '0' then
-							EP <= REG_SB;
-						else
-							EP <= REG_SH;
+						if SW(1) = '0' then
+							if SW(0) = '0' then
+								EP <= REG_SB;
+							else
+								EP <= REG_SH;
+							end if;
 						end if;
 					when REG_SH =>
 						if SW(0) = '0' then
@@ -59,9 +61,10 @@ architecture beh of gestion_alarme is
 							end if;
 						end if;
 					when SH_DEC =>
-						s_salH <= s_salH - PAS_AL_H;
-						if s_salH < 100 then
+						if s_salH  - PAS_AL_H < 100 then
 							s_salH <= 240;
+						else
+							s_salH <= s_salH - PAS_AL_H;
 						end if;
 						EP <= SH_W;
 					when SH_W =>
@@ -77,9 +80,10 @@ architecture beh of gestion_alarme is
 							end if;
 						end if;
 					when SB_INC =>
-						s_salB <= s_salB + PAS_AL_B;
-						if s_salB > 60 then
+						if s_salB + PAS_AL_B > 60 then
 							s_salB <= 40;
+						else
+							s_salB <= s_salB + PAS_AL_B;
 						end if;
 						EP <= SB_W;
 					when SB_W =>
@@ -93,8 +97,15 @@ architecture beh of gestion_alarme is
 		end if;
 	end process SEQ;
 	
-	led_al <= '1' when to_integer(unsigned(BPM)) > s_salH or to_integer(unsigned(BPM)) < s_salB else '0';
-	SALH <= std_logic_vector(to_unsigned(s_salH, 10));
-	SALB <= std_logic_vector(to_unsigned(s_salB, 10));
+	COMB : process(EP, s_salH, s_salB, BPM)
+		begin
+		SALH <= std_logic_vector(to_unsigned(s_salH, 10));
+		SALB <= std_logic_vector(to_unsigned(s_salB, 10));
+		if (to_integer(unsigned(BPM)) > s_salH or to_integer(unsigned(BPM)) < s_salB) then
+			led_al <= '1';
+		else
+			led_al <= '0';
+		end if;
+	end process COMB;
 	
 end beh;
