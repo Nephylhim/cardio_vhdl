@@ -13,6 +13,10 @@ run 20us
 run 20us
 force -deposit sim:/trait_dc/echdc 000000000001 0
 run 20us
+force -deposit sim:/trait_dc/rst {} 0
+# ** Error: (vsim-4026) Value "" does not represent a literal of the enumeration type.
+# ** Error: (vsim-4011) Invalid force value: {} 0.
+# 
 force -deposit sim:/trait_dc/rst 0 0
 force -deposit sim:/trait_dc/rst 1 0
 run 20us
