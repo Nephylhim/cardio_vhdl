@@ -171,9 +171,9 @@ architecture struct of cardio is
 		);
 		
 		rom : rom1BPM port map(
-			clock => clk,
+			clock => s_clk_100K,
 			address => s_cptperiode_moy,
-			q => s_bpm
+			q => s_bpm	
 		);
 		
 		ch_aff : choix_aff port map(
@@ -232,6 +232,8 @@ architecture struct of cardio is
 				else s_affd;
 		affc 	<= tirets when s_sel = '1'
 				else s_affc;
+				
+		led_bf <= '1';
 		
 		-- Pour le composant de test ADC
 		adc1 : ADC port map(
