@@ -1,5 +1,5 @@
 --Bloc : gestion_alarme
---Auteur : Joseph Caillet
+--Auteur : Joseph Caillet et Thomas Coussot
 --Description : verifie si bpm et en dehors des seuil permis, et permet le reglage de ces seuils.
 
 library ieee;
