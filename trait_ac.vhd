@@ -61,7 +61,7 @@ architecture beh of trait_ac is
 		Memo : process(clk, rst)
 			begin
 				if(rst = '0') then
-					s_cpt <= 1000;
+					s_cpt <= 425;
 					s_reg0 <= 425;
 					s_reg1 <= 425;
 					s_reg2 <= 425;
@@ -72,7 +72,7 @@ architecture beh of trait_ac is
 					s_reg7 <= 425;
 					s_sel <= 0;
 					s_debord <= '1';
-					debord_cpt <= '1';
+					debord_cpt <= '0';
 					top_alum <= '0';
 					s_SH_depasse <= '0';
 					
