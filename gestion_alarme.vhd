@@ -122,7 +122,7 @@ architecture beh of gestion_alarme is
 	s_sh <= std_logic_vector(to_unsigned(s_shc, 2)) & std_logic_vector(to_unsigned(s_shd, 4)) & "0000";
 	s_sb <=  "00" & std_logic_vector(to_unsigned(s_sbd, 4)) & std_logic_vector(to_unsigned(s_sbu, 4));
 	
-	COMB : process(EP, s_sb, s_sh, BPM)
+	COMB : process(s_sb, s_sh, BPM)
 		begin
 		if(BPM > s_sh or BPM < s_sb) then
 			led_al <= '1';
