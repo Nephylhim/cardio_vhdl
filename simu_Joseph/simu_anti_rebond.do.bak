@@ -64,4 +64,3 @@ run 1 ms
 force -deposit sim:/anti_rebond/bouton_poussoir 1 0
 run 95 ms
 run 5 ms
-

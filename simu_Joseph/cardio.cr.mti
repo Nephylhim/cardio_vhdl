@@ -1,12 +1,4 @@
-C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Loading package numeric_std
--- Compiling entity anti_rebond
--- Compiling architecture beh of anti_rebond
-
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164

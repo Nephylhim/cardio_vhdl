@@ -8,8 +8,8 @@ use ieee.numeric_std.all;
 
 entity anti_rebond is
 	port(
-		clk, rst, bouton_poussoir : in std_logic;
-		bp_reg : out std_logic
+		clk, rst, bp_reg : in std_logic;
+		bp_regAR : out std_logic
 	);
 end anti_rebond;
 
@@ -30,12 +30,12 @@ architecture beh of anti_rebond is
 				else
 					s_cpt <= s_cpt + 1;
 				end if;
-			elsif bouton_poussoir = '0' then
+			elsif bp_reg = '0' then
 				s_cpt <= 1;
 			end if;
 		end if;
 	end process SEQ;
 	
-	bp_reg <= '0' when s_cpt = 1 else '1';
+	bp_regAR <= '0' when s_cpt = 1 else '1';
 	
 end beh;

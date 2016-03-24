@@ -22,7 +22,7 @@ architecture struct of cardio is
 	constant tirets : std_logic_vector(6 downto 0) := "0111111";
 
 	signal s_clk_100K, s_ena2ms : std_logic;
-	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel : std_logic;
+	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel, s_bp_regAR : std_logic;
 	signal s_ech, s_DC_moy, s_aff : std_logic_vector(11 downto 0);
 	signal s_cptperiode_moy, s_bpm, s_SALB, s_SALH : std_logic_vector(9 downto 0);
 	signal s_affu, s_affd, s_affc : std_logic_vector(6 downto 0);
@@ -108,6 +108,13 @@ architecture struct of cardio is
 		);
 	end component;
 	
+	component anti_rebond is
+		port(
+			clk, rst, bp_reg : in std_logic;
+			bp_regAR : out std_logic
+		);
+	end component;
+	
 	begin
 		clk100 : div_freq port map(
 			clk => clk,
@@ -170,10 +177,17 @@ architecture struct of cardio is
 			aff => s_aff
 		);
 		
-		gal : gestion_alarme port map(
+		a_r : anti_rebond port map(
 			clk => s_clk_100K,
 			rst => rst,
 			bp_reg => bp_reg,
+			bp_regAR => s_bp_regAR
+		);
+		
+		gal : gestion_alarme port map(
+			clk => s_clk_100K,
+			rst => rst,
+			bp_reg => s_bp_regAR,
 			sw => sw,
 			BPM => s_bpm,
 			led_al => led_al,
