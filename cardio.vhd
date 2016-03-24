@@ -19,7 +19,7 @@ entity cardio is
 end cardio;
 
 architecture struct of cardio is
-	constant tirets : std_logic_vector(6 downto 0) := "1000000";
+	constant tirets : std_logic_vector(6 downto 0) := "0111111";
 
 	signal s_clk_100K, s_ena2ms : std_logic;
 	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel : std_logic;

@@ -24,6 +24,9 @@ architecture beh of trait_ac is
 	constant SB : std_logic_vector(11 downto 0) := "011110011100";
 	constant MAX : natural range 0 to 1000 := 1000;
 	signal s_cpt, s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg6, s_reg7 : natural range 0 to MAX;
+	signal s_acq_max : natural range 0 to MAX := 478;
+	signal s_acq_min : natural range 0 to MAX := 372;
+	signal s_cpt_filtre : natural range 0 to MAX := 425;
 	signal s_sel : natural range 0 to 7;
 	signal s_SH_depasse : std_logic;
 	signal s_somme_n : natural range 0 to 8*MAX;
@@ -31,6 +34,30 @@ architecture beh of trait_ac is
 	signal s_debord : std_logic;
 	
 	begin
+		
+		filtre_cpt : process(s_cpt, s_acq_min, s_acq_max, modop, echAC_acq, echAC, s_SH_depasse, s_debord)
+			begin
+				if(modop = '1' and echAC_acq = '1' and echAC < SB and s_SH_depasse = '1' and s_debord = '0') then
+					if(s_cpt < s_acq_min) then
+						s_cpt_filtre <= s_acq_min;
+					elsif(s_cpt > s_acq_max) then
+						s_cpt_filtre <= s_acq_max;
+					else
+						s_cpt_filtre <= s_cpt;
+					end if;
+				end if;
+		end process;
+		
+		maj_min_max : process(s_cpt_filtre)
+			begin
+				if(s_cpt_filtre + (s_cpt_filtre / 8) <= MAX) then
+					s_acq_max <= s_cpt_filtre + (s_cpt_filtre / 8);
+				else
+					s_acq_max <= MAX;
+				end if;
+				s_acq_min <= s_cpt_filtre - (s_cpt_filtre / 8);
+		end process;
+		
 		Memo : process(clk, rst)
 			begin
 				if(rst = '0') then
@@ -66,15 +93,23 @@ architecture beh of trait_ac is
 							s_SH_depasse <= '1';
 						elsif(echAC < SB and s_SH_depasse = '1') then
 							if(s_debord = '0') then
+								
+--								if(s_cpt_filtre + (s_cpt_filtre / 8) <= MAX) then
+--									s_acq_max <= s_cpt_filtre + (s_cpt_filtre / 8);
+--								else
+--									s_acq_max <= MAX;
+--								end if;
+--								s_acq_min <= s_cpt_filtre - (s_cpt_filtre / 8);
+								
 								case s_sel is
-									when 1 => s_reg1 <= s_cpt;
-									when 2 => s_reg2 <= s_cpt;
-									when 3 => s_reg3 <= s_cpt;
-									when 4 => s_reg4 <= s_cpt;
-									when 5 => s_reg5 <= s_cpt;
-									when 6 => s_reg6 <= s_cpt;
-									when 7 => s_reg7 <= s_cpt;
-									when others => s_reg0 <= s_cpt;
+									when 1 => s_reg1 <= s_cpt_filtre;
+									when 2 => s_reg2 <= s_cpt_filtre;
+									when 3 => s_reg3 <= s_cpt_filtre;
+									when 4 => s_reg4 <= s_cpt_filtre;
+									when 5 => s_reg5 <= s_cpt_filtre;
+									when 6 => s_reg6 <= s_cpt_filtre;
+									when 7 => s_reg7 <= s_cpt_filtre;
+									when others => s_reg0 <= s_cpt_filtre;
 														s_sel <= 0;
 								end case;
 								
