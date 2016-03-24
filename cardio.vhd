@@ -170,28 +170,28 @@ architecture struct of cardio is
 			aff => s_aff
 		);
 		
---		gal : gestion_alarme port map(
---			clk => s_clk_100K,
---			rst => rst,
---			bp_reg => bp_reg,
---			sw => sw,
---			BPM => s_bpm,
---			led_al => led_al,
---			SALB => s_SALB,
---			SALH => s_SALH
---		);
---		
---		cmd_pou : cmd_ledpouls port map(
---			clk => s_clk_100K,
---			rst => rst,
---			top_alum => s_top_alum,
---			led_pou => led_pou
---		);
+		gal : gestion_alarme port map(
+			clk => s_clk_100K,
+			rst => rst,
+			bp_reg => bp_reg,
+			sw => sw,
+			BPM => s_bpm,
+			led_al => led_al,
+			SALB => s_SALB,
+			SALH => s_SALH
+		);
+		
+		cmd_pou : cmd_ledpouls port map(
+			clk => s_clk_100K,
+			rst => rst,
+			top_alum => s_top_alum,
+			led_pou => led_pou
+		);
 
-		led_al <= '0';
-		s_SALB <= "0001000000";
-		s_SALH <= "1001000000";
-		led_pou <= '0';
+--		led_al <= '0';
+--		s_SALB <= "0001000000";
+--		s_SALH <= "1001000000";
+--		led_pou <= '0';
 		
 		trans_u : trans_7seg port map(
 			code_e => s_aff(3 downto 0),
