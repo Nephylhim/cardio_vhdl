@@ -12,7 +12,7 @@ force -deposit sim:/choix_aff/salb 1110001110 20
 run 40us
 force -deposit sim:/choix_aff/bp_reg 1 0
 force -deposit sim:/choix_aff/sw 01 20
-force -deposit sim:/choix_aff/salh 0011001100 40
+force -deposit sim:/choix_aff/salh 0010011001 40
 
 force -deposit sim:/choix_aff/bp_reg 0 60
 force -deposit sim:/choix_aff/sw 11 80
