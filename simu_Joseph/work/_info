@@ -87,12 +87,41 @@ Z18 Mx1 4 ieee 15 std_logic_arith
 R6
 R7
 !s100 hl?c6WQ8aY_fkF1Z6GVZe3
-Ecmd_ledpouls
-Z19 w1458728137
+Eanti_rebond
+Z19 w1458809971
+Z20 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
 R1
 R2
-Z20 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
-Z21 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+Z21 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd
+Z22 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd
+l0
+L9
+VFzA8k_PW]oZMd;ZSMK3WA0
+!s100 LdTezW^6JiFC>OSmMALfi0
+R5
+32
+R6
+R7
+Abeh
+R20
+R1
+Z23 DEx4 work 11 anti_rebond 0 22 FzA8k_PW]oZMd;ZSMK3WA0
+l20
+L16
+VDOHk`kDYIgi>SzINDEH]P3
+!s100 bz8bMWgCL7nSE[Zg9ePI@2
+R5
+32
+Z24 Mx2 4 ieee 14 std_logic_1164
+Z25 Mx1 4 ieee 11 numeric_std
+R6
+R7
+Ecmd_ledpouls
+Z26 w1458728137
+R1
+R2
+Z27 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+Z28 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
 l0
 L9
 V;0_f1e<G]SO8Ti@mm?8WF0
@@ -114,11 +143,11 @@ R6
 R7
 !s100 Q9R2l0o^G>=FXEC<bX3ld2
 Ediv_freq
-Z22 w1457701477
+Z29 w1457701477
 R1
 R2
-Z23 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
-Z24 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z30 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z31 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
 l0
 L8
 VF[LW?2liFeoEoWPZ5P[QW2
@@ -140,41 +169,41 @@ R6
 R7
 !s100 g=W>4X2dB[2hP0TbATeC=0
 Egestion_alarme
-Z25 w1458806087
-Z26 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z32 w1458806087
+R20
 R1
 R2
-Z27 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
-Z28 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+Z33 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+Z34 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
 l0
 L9
 VoJJ:=1WHH^e21IcDFXf0E0
-!s100 j^A_?aN>@YLJIne<[oXUN2
 R5
 32
 R6
 R7
+!s100 j^A_?aN>@YLJIne<[oXUN2
 Abeh
-R26
+R20
 R1
-Z29 DEx4 work 14 gestion_alarme 0 22 oJJ:=1WHH^e21IcDFXf0E0
+DEx4 work 14 gestion_alarme 0 22 oJJ:=1WHH^e21IcDFXf0E0
 l34
 L20
 V>d9<Bk8on0C:CODXiQmH=0
-!s100 Eg0zYL9Sj?@GUbZQ1;YZP1
 R5
 32
-Z30 Mx2 4 ieee 14 std_logic_1164
-Z31 Mx1 4 ieee 11 numeric_std
+R24
+R25
 R6
 R7
+!s100 Eg0zYL9Sj?@GUbZQ1;YZP1
 Etrait_dc
-Z32 w1457945436
-R26
+Z35 w1457945436
+R20
 R1
 R2
-Z33 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
-Z34 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z36 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z37 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 l0
 L9
 V[V3P`z4YC:laobUNW;A;J2
@@ -184,7 +213,7 @@ R6
 R7
 !s100 O2;oA<G_bfPnljNGB9JU73
 Abeh
-R26
+R20
 R1
 DEx4 work 8 trait_dc 0 22 [V3P`z4YC:laobUNW;A;J2
 l30
@@ -192,8 +221,8 @@ L17
 Vl22A9XiSRJ]@1je@:JA^]1
 R5
 32
-R30
-R31
+R24
+R25
 R6
 R7
 !s100 Mz4>1kJU1e^nCQOhTk[P33
