@@ -13,7 +13,7 @@ entity cardio is
 	port(
 		clk, rst, BP_REG, DOUT_ADC : in std_logic;
 		SW : in std_logic_vector(1 downto 0);
-		DIN_ADC, CS_ADC, CLK_ADC, LED_POU, LED_AL, LED_BF : out std_logic;
+		DIN_ADC, CS_ADC, CLK_ADC, LED_POU, LED_AL, LED_BF, PWM_LEDCAP : out std_logic;
 		AFFU, AFFD, AFFC : out std_logic_vector(6 downto 0)
 	);
 end cardio;
@@ -22,7 +22,7 @@ architecture struct of cardio is
 	constant tirets : std_logic_vector(6 downto 0) := "0111111";
 
 	signal s_clk_100K, s_ena2ms : std_logic;
-	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel, s_bp_regAR : std_logic;
+	signal s_echAC_acq, s_echDC_acq, s_debord, s_top_alum, s_sel, s_bp_regAR, s_pwm : std_logic;
 	signal s_ech, s_DC_moy, s_aff : std_logic_vector(11 downto 0);
 	signal s_cptperiode_moy, s_bpm, s_SALB, s_SALH : std_logic_vector(9 downto 0);
 	signal s_affu, s_affd, s_affc : std_logic_vector(6 downto 0);
@@ -112,6 +112,14 @@ architecture struct of cardio is
 		port(
 			clk, rst, bp_reg : in std_logic;
 			bp_regAR : out std_logic
+		);
+	end component;
+	
+	component pwm_led_capteur is
+		port(
+			clk, rst, modop, reg_auto : in std_logic;
+			dc_moy : in std_logic_vector(11 downto 0);
+			pwm_ledcap : out std_logic
 		);
 	end component;
 	
@@ -207,6 +215,15 @@ architecture struct of cardio is
 --		s_SALH <= "1001000000";
 --		led_pou <= '0';
 		
+		pwm_led : pwm_led_capteur port map(
+			clk => clk,
+			rst => rst,
+			modop => SW(1),
+			reg_auto => SW(0),
+			dc_moy => s_DC_moy,
+			pwm_ledcap => s_pwm
+		);
+		
 		trans_u : trans_7seg port map(
 			code_e => s_aff(3 downto 0),
 			code_s => s_affu
@@ -232,5 +249,6 @@ architecture struct of cardio is
 				else s_affc;
 				
 		led_bf <= '1';
+		PWM_LEDCAP <= s_pwm;
 
 end struct;
