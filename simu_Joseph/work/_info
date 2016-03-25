@@ -197,17 +197,17 @@ R24
 R6
 R7
 !s100 Eg0zYL9Sj?@GUbZQ1;YZP1
-Etrait_ac
-Z34 w1458835066
+Epwm_led_capteur
+Z34 w1458902864
 R20
 R1
 R2
-Z35 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
-Z36 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
+Z35 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
+Z36 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
 l0
-L13
-VH<N5hSd@Zg`Jk>:Tlme<n1
-!s100 3Ub2=`jSPaKBI[c3SUa6P0
+L9
+V>EVKg^@JSfo7Gci^YDnb41
+!s100 ;9GN<9;:CIOOE;Q;_>CUY0
 R5
 32
 R6
@@ -215,24 +215,53 @@ R7
 Abeh
 R20
 R1
-Z37 DEx4 work 8 trait_ac 0 22 H<N5hSd@Zg`Jk>:Tlme<n1
-l36
-L22
-V`ZZaEX2nKI:Z`Lh=;iek[3
-!s100 U5V[21Q4N;I5Z@Fc@L@E81
+Z37 DEx4 work 15 pwm_led_capteur 0 22 >EVKg^@JSfo7Gci^YDnb41
+l31
+L17
+VCbOR1BKfchTQbm3Q@DVQL1
+!s100 MSUE:eT68ZL`j:7O]A7No0
 R5
 32
 R23
 R24
 R6
 R7
-Etrait_dc
-Z38 w1457945436
+Etrait_ac
+Z38 w1458893854
 R20
 R1
 R2
-Z39 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
-Z40 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z39 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
+Z40 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
+l0
+L13
+VH<N5hSd@Zg`Jk>:Tlme<n1
+R5
+32
+R6
+R7
+!s100 3Ub2=`jSPaKBI[c3SUa6P0
+Abeh
+R20
+R1
+DEx4 work 8 trait_ac 0 22 H<N5hSd@Zg`Jk>:Tlme<n1
+l36
+L22
+VW;J=@O?CI@7P4I:R_>iX80
+R5
+32
+R23
+R24
+R6
+R7
+!s100 :^A[Xg2j5zQI8?[k6f]lQ3
+Etrait_dc
+Z41 w1457945436
+R20
+R1
+R2
+Z42 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z43 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 l0
 L9
 V[V3P`z4YC:laobUNW;A;J2
