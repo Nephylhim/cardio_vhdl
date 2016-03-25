@@ -18,8 +18,8 @@ architecture beh of pwm_led_capteur is
 	constant CPT_MAX : integer := 199;
 	constant CPT_75 : integer := 149;
 	constant PAS : integer := 10;
-	--constant WAIT_TIME : integer := 300000000 - 1;
-	constant WAIT_TIME : integer := 250 - 1;
+	constant WAIT_TIME : integer := 300000000 - 1;
+	--constant WAIT_TIME : integer := 250 - 1;
 	constant DC_BAS : std_logic_vector(11 downto 0) := x"A00";
 	constant DC_HAUT : std_logic_vector(11 downto 0) := x"B00";
 	signal s_cpt : natural range 0 to CPT_MAX;
