@@ -1,18 +1,17 @@
-C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd
+C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cardio_test.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cardio_test.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
--- Loading package numeric_std
--- Compiling entity anti_rebond
--- Compiling architecture beh of anti_rebond
+-- Compiling entity cardio
+-- Compiling architecture struct of cardio
 
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
 -- Loading package numeric_std
--- Compiling entity trait_dc
--- Compiling architecture beh of trait_dc
+-- Compiling entity gestion_alarme
+-- Compiling architecture beh of gestion_alarme
 
 } {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd {2 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -25,13 +24,28 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 ** Warning: [4] C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 ** Warning: [4] C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons_test_bench.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
 -- Loading package numeric_std
--- Compiling entity gestion_alarme
--- Compiling architecture beh of gestion_alarme
+-- Compiling entity trait_dc
+-- Compiling architecture beh of trait_dc
+
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Loading package numeric_std
+-- Compiling entity pwm_led_capteur
+-- Compiling architecture beh of pwm_led_capteur
+
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
+-- Loading package standard
+-- Loading package std_logic_1164
+-- Compiling entity cmd_ledpouls
+-- Compiling architecture beh of cmd_ledpouls
 
 } {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -41,19 +55,12 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity trait_ac
 -- Compiling architecture beh of trait_ac
 
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
--- Compiling entity cmd_ledpouls
--- Compiling architecture beh of cmd_ledpouls
-
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
-Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
--- Loading package standard
--- Loading package std_logic_1164
--- Compiling entity acq_echantillons
--- Compiling architecture beh of acq_echantillons
+-- Compiling entity div_freq
+-- Compiling architecture beh of div_freq
 
 } {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/ADC.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
@@ -64,11 +71,11 @@ Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling entity adc
 -- Compiling architecture beh of adc
 
-} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+} {} {}} C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd {1 {vcom -work work -2002 -explicit C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/acq_echantillons.vhd
 Model Technology ModelSim ALTERA vcom 6.6d Compiler 2010.11 Nov  2 2010
 -- Loading package standard
 -- Loading package std_logic_1164
--- Compiling entity div_freq
--- Compiling architecture beh of div_freq
+-- Compiling entity acq_echantillons
+-- Compiling architecture beh of acq_echantillons
 
 } {} {}}

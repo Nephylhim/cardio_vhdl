@@ -88,7 +88,7 @@ R6
 R7
 !s100 hl?c6WQ8aY_fkF1Z6GVZe3
 Eanti_rebond
-Z19 w1458835584
+Z19 w1458919279
 Z20 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
 R1
 R2
@@ -97,31 +97,57 @@ Z22 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/anti_rebond.vhd
 l0
 L9
 V^ChJjfm8VfKB_7KkHCj_a0
+!s100 Dj;;6IzbD[de<h?2KojZ=3
 R5
 32
 R6
 R7
-!s100 Dj;;6IzbD[de<h?2KojZ=3
 Abeh
 R20
 R1
-DEx4 work 11 anti_rebond 0 22 ^ChJjfm8VfKB_7KkHCj_a0
-l20
+Z23 DEx4 work 11 anti_rebond 0 22 ^ChJjfm8VfKB_7KkHCj_a0
+l21
 L16
-VHdnF2Q=jgO4i7ng`]@J6c2
+V^VaX]RiQ7KSM_<SRPi57X0
+!s100 [Cbd01S80lUfFbITiDbJ^2
 R5
 32
-Z23 Mx2 4 ieee 14 std_logic_1164
-Z24 Mx1 4 ieee 11 numeric_std
+Z24 Mx2 4 ieee 14 std_logic_1164
+Z25 Mx1 4 ieee 11 numeric_std
 R6
 R7
-!s100 SH7Oe;1O=gFVkQh_bhT9J2
-Ecmd_ledpouls
-Z25 w1458728137
+Ecardio
+R9
 R1
 R2
-Z26 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
-Z27 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+Z26 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cardio_test.vhd
+Z27 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cardio_test.vhd
+l0
+L12
+VFGEidhg_NA6EY=hQgWF:;3
+R5
+32
+R6
+R7
+!s100 J=gC8nPJ`V7DKRm1S5WaY2
+Astruct
+R1
+DEx4 work 6 cardio 0 22 FGEidhg_NA6EY=hQgWF:;3
+l123
+L21
+V[B6OFQ>ZcPhkMjnAl_7Vm2
+R5
+32
+R8
+R6
+R7
+!s100 d2<HP33aoRnc[C4:UN`aD1
+Ecmd_ledpouls
+Z28 w1458728137
+R1
+R2
+Z29 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
+Z30 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/cmd_ledpouls.vhd
 l0
 L9
 V;0_f1e<G]SO8Ti@mm?8WF0
@@ -143,11 +169,11 @@ R6
 R7
 !s100 Q9R2l0o^G>=FXEC<bX3ld2
 Ediv_freq
-Z28 w1457701477
+Z31 w1457701477
 R1
 R2
-Z29 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
-Z30 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z32 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
+Z33 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/div_freq.vhd
 l0
 L8
 VF[LW?2liFeoEoWPZ5P[QW2
@@ -169,12 +195,12 @@ R6
 R7
 !s100 g=W>4X2dB[2hP0TbATeC=0
 Egestion_alarme
-Z31 w1458806087
+Z34 w1458806087
 R20
 R1
 R2
-Z32 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
-Z33 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+Z35 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
+Z36 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/gestion_alarme.vhd
 l0
 L9
 VoJJ:=1WHH^e21IcDFXf0E0
@@ -192,47 +218,47 @@ L20
 V>d9<Bk8on0C:CODXiQmH=0
 R5
 32
-R23
 R24
+R25
 R6
 R7
 !s100 Eg0zYL9Sj?@GUbZQ1;YZP1
 Epwm_led_capteur
-Z34 w1458904213
+Z37 w1458904299
 R20
 R1
 R2
-Z35 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
-Z36 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
+Z38 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
+Z39 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/pwm_led_capteur.vhd
 l0
 L9
 V>EVKg^@JSfo7Gci^YDnb41
-!s100 ;9GN<9;:CIOOE;Q;_>CUY0
 R5
 32
 R6
 R7
+!s100 ;9GN<9;:CIOOE;Q;_>CUY0
 Abeh
 R20
 R1
-Z37 DEx4 work 15 pwm_led_capteur 0 22 >EVKg^@JSfo7Gci^YDnb41
+DEx4 work 15 pwm_led_capteur 0 22 >EVKg^@JSfo7Gci^YDnb41
 l31
 L17
 VWfY<iD6?;KXd8l?1E;_`i3
-!s100 BdjHGIKWKglgOcLP;4DUA3
 R5
 32
-R23
 R24
+R25
 R6
 R7
+!s100 BdjHGIKWKglgOcLP;4DUA3
 Etrait_ac
-Z38 w1458893854
+Z40 w1458893854
 R20
 R1
 R2
-Z39 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
-Z40 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
+Z41 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
+Z42 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_ac.vhd
 l0
 L13
 VH<N5hSd@Zg`Jk>:Tlme<n1
@@ -250,18 +276,18 @@ L22
 VW;J=@O?CI@7P4I:R_>iX80
 R5
 32
-R23
 R24
+R25
 R6
 R7
 !s100 :^A[Xg2j5zQI8?[k6f]lQ3
 Etrait_dc
-Z41 w1457945436
+Z43 w1457945436
 R20
 R1
 R2
-Z42 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
-Z43 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z44 8C:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
+Z45 FC:/Users/Joseph/Documents/GitHub/cardio_vhdl/vhdl/trait_DC.vhd
 l0
 L9
 V[V3P`z4YC:laobUNW;A;J2
@@ -279,8 +305,8 @@ L17
 Vl22A9XiSRJ]@1je@:JA^]1
 R5
 32
-R23
 R24
+R25
 R6
 R7
 !s100 Mz4>1kJU1e^nCQOhTk[P33

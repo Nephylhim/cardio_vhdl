@@ -14,8 +14,9 @@ entity anti_rebond is
 end anti_rebond;
 
 architecture beh of anti_rebond is
-	constant CPT_MAX : integer := 9999;
+	constant CPT_MAX : integer := 19999;
 	signal s_cpt : natural range 0 to CPT_MAX;
+	signal s_ena : std_logic;
 	
 	begin
 	
@@ -23,19 +24,21 @@ architecture beh of anti_rebond is
 	begin
 		if(rst = '0') then
 			s_cpt <= 0;
+			s_ena <= '0';
 		elsif rising_edge(clk) then
-			if s_cpt > 0 then
+			if s_ena = '1' then
 				if s_cpt = CPT_MAX then
+					s_ena <= '0';
 					s_cpt <= 0;
-				else
+				else				
 					s_cpt <= s_cpt + 1;
 				end if;
 			elsif bp_reg = '0' then
-				s_cpt <= 1;
+				s_ena <= '1';
 			end if;
 		end if;
 	end process SEQ;
 	
-	bp_regAR <= '0' when s_cpt = 1 else '1';
+	bp_regAR <= '0' when s_cpt = 0 and s_ena = '1' else '1';
 	
 end beh;
