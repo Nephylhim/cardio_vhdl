@@ -26,7 +26,7 @@ architecture beh of trait_ac is
 	signal s_cpt, s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg6, s_reg7 : natural range 0 to MAX;
 	signal s_acq_max : natural range 0 to MAX := 478;
 	signal s_acq_min : natural range 0 to MAX := 372;
-	signal s_cpt_filtre : natural range 0 to MAX := 425;
+	signal s_cpt_filtre : natural range 0 to MAX;
 	signal s_sel : natural range 0 to 7;
 	signal s_SH_depasse : std_logic;
 	signal s_somme_n : natural range 0 to 8*MAX;
@@ -35,16 +35,16 @@ architecture beh of trait_ac is
 	
 	begin
 		
-		filtre_cpt : process(s_cpt, s_acq_min, s_acq_max)
-			begin
-				if(s_cpt < s_acq_min) then
-					s_cpt_filtre <= s_acq_min;
-				elsif(s_cpt > s_acq_max) then
-					s_cpt_filtre <= s_acq_max;
-				else
-					s_cpt_filtre <= s_cpt;
-				end if;
-		end process;
+--		filtre_cpt : process(s_cpt, s_acq_min, s_acq_max)
+--			begin
+--				if(s_cpt < s_acq_min) then
+--					s_cpt_filtre <= s_acq_min;
+--				elsif(s_cpt > s_acq_max) then
+--					s_cpt_filtre <= s_acq_max;
+--				else
+--					s_cpt_filtre <= s_cpt;
+--				end if;
+--		end process;
 		
 		maj_min_max : process(s_cpt_filtre, modop, echAC_acq, echAC, s_SH_depasse, s_debord, s_prems)
 			begin
@@ -65,6 +65,7 @@ architecture beh of trait_ac is
 			begin
 				if(rst = '0') then
 					s_cpt <= 1000;
+					s_cpt_filtre <= 425;
 					s_reg0 <= 425;
 					s_reg1 <= 425;
 					s_reg2 <= 425;
@@ -91,6 +92,18 @@ architecture beh of trait_ac is
 						else
 							s_debord <= '1';
 							s_prems <= '1';
+						end if;
+						
+						if(s_cpt < s_acq_min) then
+							s_cpt_filtre <= s_acq_min;
+						elsif(s_cpt > s_acq_max) then
+							s_cpt_filtre <= s_acq_max;
+						else
+							if(s_cpt < 1000) then
+								s_cpt_filtre <= s_cpt + 1;
+							else
+								s_cpt_filtre <= s_cpt;
+							end if;
 						end if;
 						
 						-- Maj du registre si nouvelle periode --
