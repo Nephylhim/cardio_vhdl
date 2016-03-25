@@ -31,7 +31,7 @@ architecture beh of trait_ac is
 	signal s_SH_depasse : std_logic;
 	signal s_somme_n : natural range 0 to 8*MAX;
 	signal s_somme_l : std_logic_vector(12 downto 0);
-	signal s_debord : std_logic;
+	signal s_debord, s_prems : std_logic;
 	
 	begin
 		
@@ -46,9 +46,12 @@ architecture beh of trait_ac is
 				end if;
 		end process;
 		
-		maj_min_max : process(s_cpt_filtre, modop, echAC_acq, echAC, s_SH_depasse, s_debord)
+		maj_min_max : process(s_cpt_filtre, modop, echAC_acq, echAC, s_SH_depasse, s_debord, s_prems)
 			begin
-				if(modop = '1' and echAC < SB and s_SH_depasse = '1' and s_debord = '0') then
+				if(s_prems = '1') then
+					s_acq_max <= MAX;
+					s_acq_min <= 0;
+				elsif(modop = '1' and echAC < SB and s_SH_depasse = '1' and s_debord = '0') then
 					if(s_cpt_filtre + (s_cpt_filtre / 8) <= MAX) then
 						s_acq_max <= s_cpt_filtre + (s_cpt_filtre / 8);
 					else
@@ -75,6 +78,7 @@ architecture beh of trait_ac is
 					debord_cpt <= '0';
 					top_alum <= '0';
 					s_SH_depasse <= '0';
+					s_prems <= '1';
 					
 				elsif(rising_edge(clk)) then
 					if(modop = '1' and echAC_acq = '1') then
@@ -86,6 +90,7 @@ architecture beh of trait_ac is
 							s_cpt <= s_cpt+1;
 						else
 							s_debord <= '1';
+							s_prems <= '1';
 						end if;
 						
 						-- Maj du registre si nouvelle periode --
@@ -118,9 +123,9 @@ architecture beh of trait_ac is
 								else
 									s_sel <= 0;
 								end if;
-								
 							end if;
 							
+							s_prems <= '0';
 							s_cpt <= 0;
 							s_SH_depasse <= '0';
 							top_alum <= '1';
