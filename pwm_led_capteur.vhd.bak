@@ -1,0 +1,18 @@
+--Bloc : pwm_led_capteur
+--Auteur : Joseph Caillet et Thomas Coussot
+--Description : evite les rebonds du bouton poussoir
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity anti_rebond is
+	port(
+		clk, rst, modop, reg_auto : in std_logic;
+		pwm_led_capteur : out std_logic
+	);
+end anti_rebond;
+
+architecture beh of anti_rebond is
+	constant CPT_MAX : integer := 9999;
+	signal s_cpt : natural range 0 to CPT_MAX;
