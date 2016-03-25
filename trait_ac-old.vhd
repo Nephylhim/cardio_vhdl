@@ -1,0 +1,111 @@
+------------------------------------------------------------------
+---- fichier : trait_ac.vhd                                     --
+---- auteur : Thomas COUSSOT                                    --
+---- desc : determine quand une periode de battement recommence --
+----        et compte le nombre de cycle d'horloge entre deux   --
+----        periodes                                            --
+------------------------------------------------------------------
+--
+--library ieee;
+--use ieee.std_logic_1164.all;
+--use ieee.numeric_std.all;
+--
+--entity trait_ac is
+--	port(
+--		clk, rst, modop, echAC_acq : in std_logic;
+--		echAC : in std_logic_vector(11 downto 0);
+--		debord_cpt, top_alum : out std_logic;
+--		cptperiode_moy : out std_logic_vector(9 downto 0)
+--	);
+--end trait_ac;
+--
+--architecture beh of trait_ac is
+--	constant SH : std_logic_vector(11 downto 0) := "100001100100";
+--	constant SB : std_logic_vector(11 downto 0) := "011110011100";
+--	constant MAX : natural range 0 to 1000 := 1000;
+--	signal s_cpt, s_reg0, s_reg1, s_reg2, s_reg3, s_reg4, s_reg5, s_reg6, s_reg7 : natural range 0 to MAX;
+--	signal s_sel : natural range 0 to 7;
+--	signal s_SH_depasse : std_logic;
+--	signal s_somme_n : natural range 0 to 8*MAX;
+--	signal s_somme_l : std_logic_vector(12 downto 0);
+--	signal s_debord : std_logic;
+--	
+--	begin
+--		Memo : process(clk, rst)
+--			begin
+--				if(rst = '0') then
+--					s_cpt <= 1000;
+--					s_reg0 <= 425;
+--					s_reg1 <= 425;
+--					s_reg2 <= 425;
+--					s_reg3 <= 425;
+--					s_reg4 <= 425;
+--					s_reg5 <= 425;
+--					s_reg6 <= 425;
+--					s_reg7 <= 425;
+--					s_sel <= 0;
+--					s_debord <= '1';
+--					debord_cpt <= '1';
+--					top_alum <= '0';
+--					s_SH_depasse <= '0';
+--					
+--				elsif(rising_edge(clk)) then
+--					if(modop = '1' and echAC_acq = '1') then
+--						top_alum <= '0';
+--						
+--						-- Incrmentation du compteur --
+--						if(s_cpt < 1000) then
+--							s_debord <= '0';
+--							s_cpt <= s_cpt+1;
+--						else
+--							s_debord <= '1';
+--						end if;
+--						
+--						-- Maj du registre si nouvelle periode --
+--						if(echAC > SH) then
+--							s_SH_depasse <= '1';
+--						elsif(echAC < SB and s_SH_depasse = '1') then
+--							if(s_debord = '0') then
+--								case s_sel is
+--									when 1 => s_reg1 <= s_cpt;
+--									when 2 => s_reg2 <= s_cpt;
+--									when 3 => s_reg3 <= s_cpt;
+--									when 4 => s_reg4 <= s_cpt;
+--									when 5 => s_reg5 <= s_cpt;
+--									when 6 => s_reg6 <= s_cpt;
+--									when 7 => s_reg7 <= s_cpt;
+--									when others => s_reg0 <= s_cpt;
+--														s_sel <= 0;
+--								end case;
+--								
+--								if(s_sel < 7) then
+--									s_sel <= s_sel+1;
+--								else
+--									s_sel <= 0;
+--								end if;
+--							end if;
+--							
+--							s_cpt <= 0;
+--							s_SH_depasse <= '0';
+--							top_alum <= '1';
+--						end if;
+--						
+--						debord_cpt <= s_debord;
+--					end if;
+--				end if;
+--		end process Memo;
+--		
+--		-- Somme des registres --
+--		s_somme_n <= s_reg0 + s_reg1 + s_reg2 + s_reg3 + s_reg4 + s_reg5 + s_reg6 + s_reg7;
+--		s_somme_l <= std_logic_vector(to_unsigned(s_somme_n, 13));
+--		
+--		-- Registre a decalage (diviseur par 8) --
+--		Div8 : process(clk, rst)
+--			begin
+--				if(rst = '0') then
+--					cptperiode_moy <= "0000000000";
+--				elsif(rising_edge(clk)) then
+--					cptperiode_moy <= s_somme_l(12 downto 3);
+--				end if;
+--		end process Div8;
+--end beh;
